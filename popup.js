@@ -2,6 +2,7 @@ const bookmarkBarId = '1';
 const otherBookmarksId = '2';
 const defaultBarTitle = "Default's bar";
 let bookmarks = document.getElementById('bookmarks');
+let currentBookmark = document.querySelector("ul#currentBookmark > li")
 
 /**
  * Set the current bar name in the chrome storage API
@@ -9,6 +10,11 @@ let bookmarks = document.getElementById('bookmarks');
  */
 function setCurrentBarName(name) {
     chrome.storage.sync.set({currentBarName: name});
+}
+
+async function getCurrentBarName(name) {
+    let result = await browser.storage.sync.get(['currentBarName']);
+    return result.currentBarName;
 }
 
 /**
@@ -70,6 +76,10 @@ function moveCurrentFolderToBar(choosenFolderId) {
 
 function createPopupTree() {
     chrome.bookmarks.getSubTree(otherBookmarksId, function(results) {
+        getCurrentBarName().then(function(barName) {
+            currentBookmark.innerText = barName;
+        });
+        
         bookmarks.innerHTML = "";
         let otherBookmarks = results[0];
         otherBookmarks.children.forEach(function(child) {
@@ -84,17 +94,24 @@ function createPopupTree() {
                 createBarFolder(child.id);
             });
 
-            tippy(group, {
-                content: '2 bookmarks',
-              });
+            countBookmarksInFolder(child.id).then(function(count) {
+                tippy(group, {
+                    content: count + ' bookmarks',
+                });
+            })
 
             bookmarks.appendChild(group);
         });
     });
 }
 
-function countBookmarks() {
-    
+/**
+ * Count the amount of bookmarks in the specified folder
+ * @param {string} folderId 
+ */
+async function countBookmarksInFolder(folderId) {
+    let bookmarks = await browser.bookmarks.getSubTree(folderId);
+    return bookmarks[0].children.length;
 }
 
 createPopupTree();

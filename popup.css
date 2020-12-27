@@ -2,7 +2,12 @@ body {
     margin: 0;
 }
 
-#bookmarks {
+.container {
+    background: #efefef;
+    padding: 1px 0;
+}
+
+#bookmarks, #currentBookmark {
     display: flex;
     flex-direction: column;
     width: max-content;
@@ -39,6 +44,10 @@ ul li::before {
     position: relative;
     top: 0.3rem;
     margin-right: 0.2rem;
+}
+
+ul#currentBookmark li::before {
+    background-image: url(images/bookmark-red.svg);
 }
 
 ul li:hover:before {
