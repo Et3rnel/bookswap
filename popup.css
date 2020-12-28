@@ -2,6 +2,11 @@ body {
     margin: 0;
 }
 
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
 .container {
     background: #efefef;
     padding: 1px 0;
@@ -11,6 +16,10 @@ body {
     display: flex;
     flex-direction: column;
     width: max-content;
+}
+#currentBookmark {
+    margin: 3px 0;
+    width: auto;
 }
 
 ul {
@@ -48,6 +57,11 @@ ul li::before {
 
 ul#currentBookmark li::before {
     background-image: url(images/bookmark-red.svg);
+}
+
+ul#currentBookmark li:hover {
+    border: 1px solid #c37a301a;
+    cursor: auto;
 }
 
 ul li:hover:before {

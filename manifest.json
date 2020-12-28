@@ -8,17 +8,12 @@
         "storage",
         "bookmarks"
     ],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-    },
     "browser_action": {
         "default_popup": "popup.html",
         "default_icon": "images/bookmark-icon.png"
     },
-    "options_page": "options.html",
     "icons": {
         "128": "images/bookmark-icon-128.png"
-      },
+    },
     "manifest_version": 2
 }
