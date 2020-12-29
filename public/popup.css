@@ -28,33 +28,6 @@ ul {
     font-size: 1.2em;
 }
 
-ul li {
-    border: 1px solid #c37a301a;
-    background: #c37a301a;
-    border-radius: 999px;
-    margin: 3px 5px;
-    cursor: pointer;
-    padding: 1px 12px;
-    padding-bottom: 6.7px;
-}
-
-ul li:hover {
-    border: 1px solid #c37a306e;
-}
-
-ul li::before {
-    content: "";
-    background-image: url(images/bookmark-orange.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    position: relative;
-    top: 0.3rem;
-    margin-right: 0.2rem;
-}
-
 ul#currentBookmark li::before {
     background-image: url(images/bookmark-red.svg);
 }
@@ -64,15 +37,3 @@ ul#currentBookmark li:hover {
     cursor: auto;
 }
 
-ul li:hover:before {
-    content: "";
-    background-image: url(images/bookmark-red.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    position: relative;
-    top: 0.3rem;
-    margin-right: 0.2rem;
-}

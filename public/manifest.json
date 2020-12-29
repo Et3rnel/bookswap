@@ -15,6 +15,6 @@
     "icons": {
         "128": "images/bookmark-icon-128.png"
     },
-    "content_security_policy": "script-src 'self' 'sha256-jILcIdqV10OkbreTC+UzI361Q8HPa6wJ++OVcqI/6fg='",
+    "content_security_policy": "script-src 'self' 'sha256-45Iqs5hd6pDfUI7rK0EC0+4zf3wqzNA+KMmyMdUM1ss='",
     "manifest_version": 2
 }
