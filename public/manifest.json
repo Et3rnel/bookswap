@@ -1,25 +1,20 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+    "name": "Fav Switch",
+    "version": "1.0",
+    "description": "Desc. Fav Switch",
+    "permissions": [
+        "activeTab", 
+        "declarativeContent", 
+        "storage",
+        "bookmarks"
+    ],
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_icon": "images/bookmark-icon.png"
     },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+    "icons": {
+        "128": "images/bookmark-icon-128.png"
     },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "content_security_policy": "script-src 'self' 'sha256-jILcIdqV10OkbreTC+UzI361Q8HPa6wJ++OVcqI/6fg='",
+    "manifest_version": 2
 }
