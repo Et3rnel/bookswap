@@ -86,32 +86,23 @@ function createPopupTree() {
             if (!isFolder(child)) {
                 return; 
             }
-            var group = document.createElement('li');
-            group.classList.add('bookmark');
-            group.dataset.id = child.id
-            group.innerText = child.title;
-            group.addEventListener('click', function() {
-                createBarFolder(child.id);
-            });
+            
+            // var group = document.createElement('li');
+            // group.dataset.id = child.id
+            // group.innerText = child.title;
+            // group.addEventListener('click', function() {
+            //     createBarFolder(child.id);
+            // });
 
-            countBookmarksInFolder(child.id).then(function(count) {
-                tippy(group, {
-                    content: count + ' bookmarks',
-                });
-            })
+            // countBookmarksInFolder(child.id).then(function(count) {
+            //     tippy(group, {
+            //         content: count + ' bookmarks',
+            //     });
+            // })
 
-            bookmarks.appendChild(group);
+            // bookmarks.appendChild(group);
         });
     });
-}
-
-/**
- * Count the amount of bookmarks in the specified folder
- * @param {string} folderId 
- */
-async function countBookmarksInFolder(folderId) {
-    let bookmarks = await browser.bookmarks.getSubTree(folderId);
-    return bookmarks[0].children.length;
 }
 
 createPopupTree();

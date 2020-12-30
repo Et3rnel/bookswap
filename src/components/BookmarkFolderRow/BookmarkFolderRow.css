@@ -26,14 +26,5 @@ li::before {
 }
 
 li:hover:before {
-  /* content: ""; */
   background-image: url(bookmark-red.svg);
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
-  position: relative;
-  top: 0.3rem;
-  margin-right: 0.2rem; */
 }

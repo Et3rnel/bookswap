@@ -1,6 +1,6 @@
 import './Popup.css';
-import './components/BookmarkFolderTable/BookmarkFolderTable';
-import BookmarkFolderTable from './components/BookmarkFolderTable/BookmarkFolderTable';
+import './components/BookmarkFolderTable/BookmarkFolderTable.js';
+import BookmarkFolderTable from './components/BookmarkFolderTable/BookmarkFolderTable.js';
 
 function Popup() {
   return (

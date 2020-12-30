@@ -4,22 +4,32 @@ import BookmarkFolderRow from '../BookmarkFolderRow/BookmarkFolderRow';
 import BookmarkService from '../../services/BookmarkService';
 
 const BookmarkFolderTable = () => {
-    const [bookmarks, setBookmarks] = useState([]);
+    const [listFolders, setListFolders] = useState([]);
+
+    function testUpdate() {
+        alert('Must update');
+    }
+
+    async function fetchAll() {
+        let bookmarks = await BookmarkService.fetchOtherBookmarks();
+        const rows = bookmarks.map((bookmark) => 
+            <BookmarkFolderRow 
+                key={bookmark.id}
+                callBack={testUpdate} 
+                bookmarkNode={bookmark} 
+            />
+        );
+        setListFolders(rows)
+    }
 
     useEffect(() => {
-        BookmarkService.fetchOtherBookmarks().then(function(bookmarks) {
-            setBookmarks(bookmarks);
-        });
-    });
-
-    const listItems = bookmarks.map((bookmark) =>
-        <li>{bookmark}</li>
-    );
+        console.log('0');
+        fetchAll();
+    }, []);
 
     return (
         <ul>
-            <BookmarkFolderRow>Coucou ça va?</BookmarkFolderRow>
-            <BookmarkFolderRow>Oui test</BookmarkFolderRow>
+            {listFolders}
         </ul>
     );
 }
