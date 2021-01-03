@@ -4,14 +4,6 @@ const defaultBarTitle = "Default's bar";
 let bookmarks = document.getElementById('bookmarks');
 let currentBookmark = document.querySelector("ul#currentBookmark > li")
 
-/**
- * Set the current bar name in the chrome storage API
- * @param {string} name 
- */
-function setCurrentBarName(name) {
-    chrome.storage.sync.set({currentBarName: name});
-}
-
 async function getCurrentBarName(name) {
     let result = await browser.storage.sync.get(['currentBarName']);
     return result.currentBarName;
@@ -86,21 +78,6 @@ function createPopupTree() {
             if (!isFolder(child)) {
                 return; 
             }
-            
-            // var group = document.createElement('li');
-            // group.dataset.id = child.id
-            // group.innerText = child.title;
-            // group.addEventListener('click', function() {
-            //     createBarFolder(child.id);
-            // });
-
-            // countBookmarksInFolder(child.id).then(function(count) {
-            //     tippy(group, {
-            //         content: count + ' bookmarks',
-            //     });
-            // })
-
-            // bookmarks.appendChild(group);
         });
     });
 }

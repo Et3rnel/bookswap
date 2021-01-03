@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 import BookmarkService from '../../services/BookmarkService';
 import './BookmarkFolderRow.css';
 

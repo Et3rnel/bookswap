@@ -23,7 +23,6 @@ const BookmarkFolderTable = () => {
     }
 
     useEffect(() => {
-        console.log('0');
         fetchAll();
     }, []);
 
