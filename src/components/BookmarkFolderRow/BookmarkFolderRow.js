@@ -8,7 +8,6 @@ const BookmarkFolderRow = (props) => {
     const [nbBookmarks, setNbBookmarks] = useState(0);
 
     useEffect(() => {
-        console.log('useE de Row');
         BookmarkService.countBookmarksInFolder(props.bookmarkNode.id).then((result) => {
             setNbBookmarks(result);
         });

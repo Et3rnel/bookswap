@@ -6,6 +6,11 @@ const otherBookmarksId = '2';
 
 // Service
 const BookmarkService = {
+    fetchBookmarkBarNode: async function() {
+        let subTree = await browser.bookmarks.get(barBookmarkId);
+        return subTree[0].children;
+    },
+    
     fetchOtherBookmarks: async function() {
         let subTree = await browser.bookmarks.getSubTree(otherBookmarksId);
         return subTree[0].children;

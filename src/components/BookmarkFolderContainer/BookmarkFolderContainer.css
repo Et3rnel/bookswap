@@ -1,0 +1,4 @@
+ul.CurrentBookmark li:hover {
+    border: 1px solid #c37a301a;
+    cursor: auto;
+}

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Popup.css';
 import './components/BookmarkFolderTable/BookmarkFolderTable.js';
-import BookmarkFolderTable from './components/BookmarkFolderTable/BookmarkFolderTable.js';
 import BookmarkService from './services/BookmarkService';
-import BarNameInput from './components/BarNameInput/BarNameInput'
+import BarNameSelect from './components/BarNameSelect/BarNameSelect';
+import BookmarkFolderContainer from './components/BookmarkFolderContainer/BookmarkFolderContainer';
 
 const Popup = () => {
   const [currentBarName, setCurrentBarName] = useState('');
@@ -17,26 +17,23 @@ const Popup = () => {
     // let resultagain = await BookmarkService.moveFolderToBar();
   }
 
+  async function updateBarName(barName) {
+    await BookmarkService.setCurrentBarName(barName); // Store the bar name in the browser API
+    setCurrentBarName(barName);
+  }
+
   useEffect(() => {
     BookmarkService.fetchCurrentBarName().then((name) => {
-      console.log('Cc c le name : ');
-      console.log(name);
-  
       setCurrentBarName(name);
-
-      // will catch both null and undefined.
-      if (name == '') {
-        console.log('name c null');
-      }
     })
   }, [currentBarName]);
 
   return (
     <div className="Popup">
-      {/* TODO : mettre un event de cette classe (donc le parent) pour refresh et mettre le bon
-      component :) */}
-      <BarNameInput />
-      {/* <BookmarkFolderTable /> */}
+        {currentBarName
+          ? <BookmarkFolderContainer barName={currentBarName}/>
+          : <BarNameSelect callBack={updateBarName} />
+        }
     </div>
   );
 }
