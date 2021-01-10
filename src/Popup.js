@@ -30,10 +30,10 @@ const Popup = () => {
 
   return (
     <div className="Popup">
-        {currentBarName
-          ? <BookmarkFolderContainer barName={currentBarName}/>
-          : <BarNameSelect callBack={updateBarName} />
-        }
+      {currentBarName
+        ? <BookmarkFolderContainer barName={currentBarName}/>
+        : <BarNameSelect callBack={updateBarName} />
+      }
     </div>
   );
 }

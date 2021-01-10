@@ -4,15 +4,15 @@ import BookmarkCurrentBarRow from '../BookmarkCurrentBarRow/BookmarkCurrentBarRo
 import './BookmarkFolderContainer.css';
 
 const BookmarkFolderContainer = (props) => {
-    return (
-        <div>
-            <div class="container">
-                <h1>Current bar</h1>
-                <BookmarkCurrentBarRow barName={props.barName}/>
-            </div>
-            <BookmarkFolderTable />
-        </div>
-    );
+  return (
+    <div>
+      <div class="container">
+        <h1>Current bar</h1>
+        <BookmarkCurrentBarRow barName={props.barName}/>
+      </div>
+      <BookmarkFolderTable />
+    </div>
+  );
 }
 
 export default BookmarkFolderContainer;
