@@ -1,0 +1,6 @@
+# 2 space indentation for Javascript files
+[*.js]
+indent_style = space
+indent_size = 2
+
+trim_trailing_whitespace = true
