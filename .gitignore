@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# eslint
+# won't be necessary later see https://stackoverflow.com/questions/65079558/how-to-delete-eslintcache-file-in-react
+.eslintcache
+
