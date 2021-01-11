@@ -1,12 +1,12 @@
 import React from 'react';
-import './BookmarkCurrentBarRow.css';
+import './BookmarkCurrentBarRow.scoped.css';
 
 const BookmarkCurrentBarRow = (props) => {
   return (
     <ul>
       <li onClick={() => {
         props.callBack();
-      }}>{props.barName}</li>       
+      }}>{props.barName}</li>
     </ul>
   )
 }

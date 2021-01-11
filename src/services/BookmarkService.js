@@ -10,7 +10,7 @@ const BookmarkService = {
     let subTree = await browser.bookmarks.get(barBookmarkId);
     return subTree[0].children;
   },
-    
+
   fetchOtherBookmarks: async function() {
     let subTree = await browser.bookmarks.getSubTree(otherBookmarksId);
     return subTree[0].children;
@@ -28,7 +28,7 @@ const BookmarkService = {
 
   /**
    * Set the current bar name in the browser(chrome) storage API
-   * @param {string} name 
+   * @param {string} name
    */
   setCurrentBarName: async function(name) {
     return await browser.storage.sync.set({currentBarName: name});
@@ -36,7 +36,7 @@ const BookmarkService = {
 
   /**
    * Count the amount of bookmarks in the specified folder
-   * @param {string} folderId 
+   * @param {string} folderId
    */
   countBookmarksInFolder: async function(folderId) {
     let bookmarks = await browser.bookmarks.getSubTree(folderId);
@@ -91,7 +91,7 @@ const BookmarkService = {
         }
       )
     });
-    
+
     browser.bookmarks.remove(folderId)
     await this.setCurrentBarName('Todo change lol');
   }

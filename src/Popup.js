@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Popup.css';
-import './components/BookmarkFolderTable/BookmarkFolderTable.js';
 import BookmarkService from './services/BookmarkService';
 import BarNameSelect from './components/BarNameSelect/BarNameSelect';
 import BookmarkFolderContainer from './components/BookmarkFolderContainer/BookmarkFolderContainer';

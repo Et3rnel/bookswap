@@ -1,7 +1,7 @@
 import React from 'react';
 import BookmarkFolderTable from '../BookmarkFolderTable/BookmarkFolderTable';
 import BookmarkCurrentBarRow from '../BookmarkCurrentBarRow/BookmarkCurrentBarRow';
-import './BookmarkFolderContainer.css';
+import './BookmarkFolderContainer.scoped.css';
 
 const BookmarkFolderContainer = (props) => {
   return (
@@ -10,7 +10,7 @@ const BookmarkFolderContainer = (props) => {
         <h1>Current bar</h1>
         <BookmarkCurrentBarRow barName={props.barName}/>
       </div>
-      <BookmarkFolderTable />
+      <BookmarkFolderTable barName={props.barName}/>
     </div>
   );
 }

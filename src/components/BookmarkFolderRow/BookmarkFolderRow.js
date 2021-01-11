@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 import BookmarkService from '../../services/BookmarkService';
-import './BookmarkFolderRow.css';
+import './BookmarkFolderRow.scoped.css';
 
 const BookmarkFolderRow = (props) => {
   const [nbBookmarks, setNbBookmarks] = useState(0);

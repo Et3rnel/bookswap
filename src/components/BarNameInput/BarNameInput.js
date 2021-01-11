@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './BarNameInput.css'
+import './BarNameInput.scoped.css'
 
 const BarNameInput = (props) => {
   const [barName, setBarName] = useState("Default's bar");
@@ -12,9 +12,9 @@ const BarNameInput = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <label for="barName">Bar name</label>
-      <input 
+      <input
         name="barName"
-        type="text" 
+        type="text"
         value={barName}
         onChange={e => setBarName(e.target.value)}
       />

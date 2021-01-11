@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './BookmarkFolderTable.css';
+import './BookmarkFolderTable.scoped.css';
 import BookmarkFolderRow from '../BookmarkFolderRow/BookmarkFolderRow';
 import BookmarkService from '../../services/BookmarkService';
 
-const BookmarkFolderTable = () => {
+const BookmarkFolderTable = (props) => {
   const [listFolders, setListFolders] = useState([]);
 
-  function testUpdate() {
-    alert('Must update');
+  async function swapBookmarks() {
+    let newfolderTreeNode = await BookmarkService.createFolderInOtherBookmarks(props.barName);
+    let result = await BookmarkService.moveBarBookmarks(newfolderTreeNode.id);
+
+    alert('Must update fired');
   }
 
   async function fetchAll() {
     let bookmarks = await BookmarkService.fetchOtherBookmarks();
-    const rows = bookmarks.map((bookmark) => 
-      <BookmarkFolderRow 
+    const rows = bookmarks.map((bookmark) =>
+      <BookmarkFolderRow
         key={bookmark.id}
-        callBack={testUpdate} 
-        bookmarkNode={bookmark} 
+        callBack={swapBookmarks}
+        bookmarkNode={bookmark}
       />
     );
     setListFolders(rows)

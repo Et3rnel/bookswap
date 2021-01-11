@@ -16,6 +16,7 @@
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.7",
+    "babel-plugin-react-scoped-css": "^1.1.0",
     "babel-preset-react-app": "^10.0.0",
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
@@ -58,6 +59,7 @@
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "8.0.2",
+    "scoped-css-loader": "^1.0.0",
     "semver": "7.3.2",
     "style-loader": "1.3.0",
     "terser-webpack-plugin": "4.2.3",
@@ -149,6 +151,9 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "babel-plugin-react-scoped-css"
     ]
   }
 }
