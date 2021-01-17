@@ -3,7 +3,7 @@ import './Popup.css';
 import BookmarkService from './services/BookmarkService';
 import BarNameSelect from './components/BarNameSelect/BarNameSelect';
 import BookmarkFolderContainer from './components/BookmarkFolderContainer/BookmarkFolderContainer';
-import BarProvider, { BarContext } from './context/barContext';
+import { BarContext } from './context/barContext';
 
 const Popup = () => {
   const { barName, saveBarName } = useContext(BarContext);
@@ -15,14 +15,12 @@ const Popup = () => {
   }, [barName]);
 
   return (
-    <BarProvider>
-      <div className="Popup">
-        {currentBarName
-          ? <BookmarkFolderContainer />
-          : <BarNameSelect />
-        }
-      </div>
-    </BarProvider>
+    <div className="Popup">
+      {barName
+        ? <BookmarkFolderContainer />
+        : <BarNameSelect />
+      }
+    </div>
   );
 }
 
