@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BarContext } from '../../context/barContext';
 import './BookmarkCurrentBarRow.scoped.css';
 
-const BookmarkCurrentBarRow = (props) => {
+const BookmarkCurrentBarRow = () => {
+  const { barName } = useContext(BarContext);
+
   return (
     <ul>
-      <li onClick={() => {
-        props.callBack();
-      }}>{props.barName}</li>
+      <li>{barName}</li>
     </ul>
   )
 }

@@ -79,7 +79,9 @@ const BookmarkService = {
     })
   },
 
-  moveFolderToBar: async function(folderId) {
+  moveFolderToBar: async function(bookmarkNode) {
+    let folderId = bookmarkNode.id;
+    let barName = bookmarkNode.title;
     let bookmarkTreeNodes = await this.fetchBookmarks(folderId);
 
     // TODO : pareil voir pour faire un promise all
@@ -93,7 +95,7 @@ const BookmarkService = {
     });
 
     browser.bookmarks.remove(folderId)
-    await this.setCurrentBarName('Todo change lol');
+    await this.setCurrentBarName(barName);
   }
 };
 

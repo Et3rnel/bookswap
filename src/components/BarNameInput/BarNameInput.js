@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import { BarContext } from '../../context/barContext';
 import './BarNameInput.scoped.css'
 
 const BarNameInput = (props) => {
   const [barName, setBarName] = useState("Default's bar");
+  const { saveBarName } = useContext(BarContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.callBack(barName);
+    saveBarName(barName);
   }
 
   return (

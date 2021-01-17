@@ -1,39 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Popup.css';
 import BookmarkService from './services/BookmarkService';
 import BarNameSelect from './components/BarNameSelect/BarNameSelect';
 import BookmarkFolderContainer from './components/BookmarkFolderContainer/BookmarkFolderContainer';
+import BarProvider from './context/barContext';
 
 const Popup = () => {
-  const [currentBarName, setCurrentBarName] = useState('');
-
-  async function swap() {
-    let newfolderTreeNode = await BookmarkService.createFolderInOtherBookmarks();
-    let result = await BookmarkService.moveBarBookmarks(newfolderTreeNode.id);
-
-    console.log('Test result');
-    console.log(result);
-    // let resultagain = await BookmarkService.moveFolderToBar();
-  }
-
-  async function updateBarName(barName) {
-    await BookmarkService.setCurrentBarName(barName); // Store the bar name in the browser API
-    setCurrentBarName(barName);
-  }
+  const { barName, saveBarName } = useContext(BarContext);
 
   useEffect(() => {
     BookmarkService.fetchCurrentBarName().then((name) => {
-      setCurrentBarName(name);
+      saveBarName(name); // TODO : I think it should not reset the bar name in the API right after getting it ?
     })
-  }, [currentBarName]);
+  }, [barName]);
 
   return (
-    <div className="Popup">
-      {currentBarName
-        ? <BookmarkFolderContainer barName={currentBarName}/>
-        : <BarNameSelect callBack={updateBarName} />
-      }
-    </div>
+    <BarProvider>
+      <div className="Popup">
+        {currentBarName
+          ? <BookmarkFolderContainer />
+          : <BarNameSelect />
+        }
+      </div>
+    </BarProvider>
   );
 }
 

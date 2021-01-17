@@ -9,20 +9,3 @@ const defaultBarTitle = "Default's bar";
 function isFolder(child) {
   return !child.hasOwnProperty('url');
 }
-
-
-function moveBookmarkBar(createdFolderId, choosenFolderId) {
-  chrome.bookmarks.getSubTree(bookmarkBarId, function(results) {
-    results[0].children.forEach(function(child) {
-      chrome.bookmarks.move(
-        child.id,
-        {
-          parentId: createdFolderId
-        }
-      )
-    });
-
-    // We will make this function synchrone when using Manifest V3
-    moveCurrentFolderToBar(choosenFolderId);
-  });
-}

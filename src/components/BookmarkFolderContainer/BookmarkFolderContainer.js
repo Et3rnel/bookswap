@@ -3,14 +3,14 @@ import BookmarkFolderTable from '../BookmarkFolderTable/BookmarkFolderTable';
 import BookmarkCurrentBarRow from '../BookmarkCurrentBarRow/BookmarkCurrentBarRow';
 import './BookmarkFolderContainer.scoped.css';
 
-const BookmarkFolderContainer = (props) => {
+const BookmarkFolderContainer = () => {
   return (
     <div>
       <div class="container">
         <h1>Current bar</h1>
-        <BookmarkCurrentBarRow barName={props.barName}/>
+        <BookmarkCurrentBarRow/>
       </div>
-      <BookmarkFolderTable barName={props.barName}/>
+      <BookmarkFolderTable/>
     </div>
   );
 }

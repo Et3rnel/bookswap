@@ -16,7 +16,7 @@ const BookmarkFolderRow = (props) => {
   return (
     <Tippy content={nbBookmarks + ' bookmarks'}>
       <li onClick={() => {
-        props.callBack();
+        props.callBack(props.bookmarkNode);
       }}>{props.bookmarkNode.title}</li>
     </Tippy>
   )

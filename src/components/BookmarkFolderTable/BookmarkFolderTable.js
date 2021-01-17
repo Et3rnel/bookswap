@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './BookmarkFolderTable.scoped.css';
 import BookmarkFolderRow from '../BookmarkFolderRow/BookmarkFolderRow';
 import BookmarkService from '../../services/BookmarkService';
+import { BarContext } from '../../context/barContext';
 
-const BookmarkFolderTable = (props) => {
+const BookmarkFolderTable = () => {
   const [listFolders, setListFolders] = useState([]);
 
-  async function swapBookmarks() {
-    let newfolderTreeNode = await BookmarkService.createFolderInOtherBookmarks(props.barName);
-    let result = await BookmarkService.moveBarBookmarks(newfolderTreeNode.id);
+  const { barName, saveBarName } = useContext(BarContext);
 
-    alert('Must update fired');
+  /**
+   * @param {BookmarkTreeNode} bookmarkNode
+   */
+  async function swapBookmarks(bookmarkNode) {
+    let newfolderTreeNode = await BookmarkService.createFolderInOtherBookmarks(barName);
+    await BookmarkService.moveBarBookmarks(newfolderTreeNode.id);
+    await BookmarkService.moveFolderToBar(bookmarkNode);
+    await saveBarName(barName); // TODO : on usecontext et set le barname ?
   }
 
   async function fetchAll() {
