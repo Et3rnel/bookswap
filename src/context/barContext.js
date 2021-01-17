@@ -6,8 +6,8 @@ export const BarContext = createContext();
 const BarProvider = ({ children }) => {
   const [barName, setBarName] = useState('');
   const saveBarName = async name => {
-    await BookmarkService.setCurrentBarName(barName); // Store the bar name in the browser API
-    setBars(name);
+    await BookmarkService.setCurrentBarName(name); // Store the bar name in the browser API
+    setBarName(name);
   };
   return (
     <BarContext.Provider value={{ barName, saveBarName }}>

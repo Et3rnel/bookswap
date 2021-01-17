@@ -95,7 +95,7 @@ const BookmarkService = {
     });
 
     browser.bookmarks.remove(folderId)
-    await this.setCurrentBarName(barName);
+    // await this.setCurrentBarName(barName); // TODO : je pense qu'on doit le virer wsh
   }
 };
 

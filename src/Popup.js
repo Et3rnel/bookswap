@@ -3,7 +3,7 @@ import './Popup.css';
 import BookmarkService from './services/BookmarkService';
 import BarNameSelect from './components/BarNameSelect/BarNameSelect';
 import BookmarkFolderContainer from './components/BookmarkFolderContainer/BookmarkFolderContainer';
-import BarProvider from './context/barContext';
+import BarProvider, { BarContext } from './context/barContext';
 
 const Popup = () => {
   const { barName, saveBarName } = useContext(BarContext);
