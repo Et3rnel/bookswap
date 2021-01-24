@@ -6,13 +6,12 @@ import { BarContext } from '../../context/barContext';
 
 const BookmarkFolderTable = () => {
   const [listFolders, setListFolders] = useState([]);
+  const {barName, saveBarName} = useContext(BarContext);
 
   /**
    * @param {BookmarkTreeNode} bookmarkNode
    */
   async function swapBookmarks(bookmarkNode) {
-    const { barName, saveBarName } = useContext(BarContext);
-
     let newfolderTreeNode = await BookmarkService.createFolderInOtherBookmarks(barName);
     await BookmarkService.moveBarBookmarks(newfolderTreeNode.id);
     await BookmarkService.moveFolderToBar(bookmarkNode);
@@ -33,7 +32,7 @@ const BookmarkFolderTable = () => {
 
   useEffect(() => {
     fetchAll();
-  }, []);
+  }, [barName]);
 
   return (
     <ul>
