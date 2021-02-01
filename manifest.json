@@ -1,0 +1,19 @@
+{
+    "name": "Fav Switch",
+    "version": "1.0",
+    "description": "Desc. Fav Switch",
+    "permissions": [
+        "activeTab", 
+        "declarativeContent", 
+        "storage",
+        "bookmarks"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/bookmark-icon.png"
+    },
+    "icons": {
+        "128": "images/bookmark-icon-128.png"
+    },
+    "manifest_version": 2
+}
