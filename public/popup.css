@@ -4,22 +4,27 @@ body {
 
 h1 {
     text-align: center;
-    margin: 0;
+    width: max-content;
+    margin: 4px 8px;
 }
+
 
 .container {
     background: #efefef;
     padding: 1px 0;
 }
 
-#bookmarks, #currentBookmark {
+#bookmarks {
     display: flex;
     flex-direction: column;
     width: max-content;
 }
-#currentBookmark {
+/* #currentBookmark {
     margin: 3px 0;
     width: auto;
-}
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+} */
 
 

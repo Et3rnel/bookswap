@@ -1,10 +1,15 @@
 /* Forms */
+form {
+    margin-top: 5px;
+}
+form * {
+    width: -webkit-fill-available;
+}
 input[type=text] {
     border-radius: 999px;
     margin: 3px 5px;
     padding: 5px 12px 3.7px;
 }
-
 button[type="submit"] {
     cursor: pointer;
     margin: 7px 5px;

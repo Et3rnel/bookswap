@@ -13,7 +13,8 @@ const BookmarkService = {
 
   fetchOtherBookmarks: async function() {
     let subTree = await browser.bookmarks.getSubTree(otherBookmarksId);
-    return subTree[0].children;
+    let bookmarks = subTree[0].children;
+    return bookmarks.filter(bookmarkNode => this.isFolder(bookmarkNode));
   },
 
   fetchBarBookmarks: async function() {
@@ -96,6 +97,14 @@ const BookmarkService = {
 
     browser.bookmarks.remove(folderId)
     // await this.setCurrentBarName(barName); // TODO : je pense qu'on doit le virer wsh
+  },
+
+  /**
+   * Checks if the node is a folder (group) or a bookmark
+   * @param {BookmarkTreeNode} child
+   */
+  isFolder: function(child) {
+    return !child.hasOwnProperty('url');
   }
 };
 
